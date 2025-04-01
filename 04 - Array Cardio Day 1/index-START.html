@@ -87,9 +87,14 @@
     // 7. sort Exercise
     // Sort the people alphabetically by last name
 
-    const splittedNames = people.map(item => item.split(', '))
-                                .sort()
-    console.log(splittedNames)
+    const sorted = people.sort((lastOne, nextOne) => {
+      const [aLast, aFirst] = lastOne.split(', ');
+      const [bLast, bFirst] = nextOne.split(', ');
+      return bLast.localeCompare(aLast);
+    });
+    const reverseOrder = sorted.reverse();
+
+    // console.table(sorted);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
